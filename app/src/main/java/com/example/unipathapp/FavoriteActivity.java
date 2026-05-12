@@ -1,25 +1,24 @@
 package com.example.unipathapp;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.widget.ImageButton;
-
 import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.content.Intent;
 
-public class MainActivity extends AppCompatActivity {
+public class FavoriteActivity extends AppCompatActivity {
 
-    ImageButton btnFavorite, btnAbout;
+    ImageButton btnMain, btnAbout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_favorite);
 
-        btnFavorite = findViewById(R.id.btnFavorite);
+        btnMain = findViewById(R.id.btnMain);
         btnAbout = findViewById(R.id.btnAbout);
 
-        btnFavorite.setOnClickListener(v -> {
-            startActivity(new Intent(this, FavoriteActivity.class));
+        btnMain.setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class));
         });
 
         btnAbout.setOnClickListener(v -> {

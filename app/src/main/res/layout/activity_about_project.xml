@@ -148,14 +148,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
 
-    <ImageView
+    <ImageButton
+        android:id="@+id/btnMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:layout_marginStart="56.5dp"
         android:src="@drawable/homelt"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -167,7 +169,8 @@
         android:text="Главная"
         />
 
-    <ImageView
+    <ImageButton
+        android:id="@+id/btnFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/favoritelt"
@@ -175,6 +178,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="32dp"
+        android:background="@color/white"
         />
 
     <TextView
