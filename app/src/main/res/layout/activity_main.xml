@@ -556,13 +556,13 @@
             <ImageView
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:src="@drawable/homelt" />
+                android:src="@drawable/homeltc" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Главная"
-                android:textColor="#777777"
+                android:textColor="#9F735A"
                 android:textSize="12sp" />
 
         </LinearLayout>
