@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.UniPathApp" parent="Base.Theme.UniPathApp" />
+    <style name="Theme.UniPath" parent="Theme.Material3.Light.NoActionBar" />
 </resources>

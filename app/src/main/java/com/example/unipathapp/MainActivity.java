@@ -13,10 +13,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_filter_dropdown);
 
-        btnFavorite = findViewById(R.id.btnFavorite);
-        btnAbout = findViewById(R.id.btnAbout);
+        //btnFavorite = findViewById(R.id.btnFavorite);
+        //btnAbout = findViewById(R.id.btnAbout);
 
         btnFavorite.setOnClickListener(v -> {
             startActivity(new Intent(this, FavoriteActivity.class));
