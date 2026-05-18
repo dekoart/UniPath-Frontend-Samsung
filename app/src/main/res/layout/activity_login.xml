@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundlt">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вход"
+        android:textSize="96sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif-light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="140dp"
+        android:layout_marginStart="32dp"/>
+
+    <LinearLayout
+        android:id="@+id/loginCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@drawable/card_bg"
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp">
+
+        <EditText
+            android:id="@+id/emailEdit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Email*"
+            android:textColor="#000000"
+            android:textColorHint="#8D6F61"
+            android:paddingHorizontal="18dp"
+            android:background="@drawable/input_bg"
+            android:inputType="textEmailAddress"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/input_bg">
+
+            <EditText
+                android:id="@+id/passwordEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Введите пароль"
+                android:textColor="#000000"
+                android:textColorHint="#8D6F61"
+                android:paddingStart="18dp"
+                android:paddingEnd="50dp"
+                android:background="@android:color/transparent"
+                android:inputType="textPassword"/>
+
+            <ImageView
+                android:id="@+id/showPassword"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/closeeye"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/registerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ещё нет аккаунта?\nЗарегистрироваться"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="#5E534B"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="28dp"/>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginButton"
+        android:layout_width="220dp"
+        android:layout_height="64dp"
+        android:text="Войти"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:background="@drawable/button_bg"
+        android:backgroundTint="@null"
+        app:layout_constraintTop_toBottomOf="@id/loginCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="80dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -43,6 +43,7 @@
         android:layout_marginStart="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
         android:text="О проекте UniPath"
         android:layout_marginTop="78dp"
         android:textSize = "20sp"
@@ -54,8 +55,7 @@
         android:layout_marginStart="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Поступление — это марафон, а не спринт.
-                     Мы создали UniPath, чтобы сделать этот путь понятным и уверенным."
+        android:text="Поступление — это марафон, а не спринт.\nМы создали UniPath, чтобы сделать этот путь\nпонятным и уверенным."
         android:layout_marginTop="130dp"
         android:textSize = "16sp"
         />
@@ -76,8 +76,7 @@
         android:layout_marginStart="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="• Умный подбор: Вузы, которые подходят
-                именно под твои баллы."
+        android:text="• Умный подбор: Вузы, которые подходят\nименно под твои баллы."
         android:layout_marginTop="229dp"
         android:textSize = "16sp"
         />
@@ -88,8 +87,7 @@
         android:layout_marginStart="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="• Погружение: Живые фото и отзывы
-                    изнутри студенческой жизни."
+        android:text="• Погружение: Живые фото и отзывы\nизнутри студенческой жизни."
         android:layout_marginTop="279dp"
         android:textSize = "16sp"
         />
@@ -100,8 +98,7 @@
         android:layout_marginStart="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="• Экономия времени: Вся информация о
-        приемах без лишних переходов."
+        android:text="• Экономия времени: Вся информация о\nприемах без лишних переходов."
         android:layout_marginTop="329dp"
         android:textSize = "16sp"
         />
@@ -112,7 +109,7 @@
         android:layout_marginStart="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="• Без стресса: Календарь абитуриента с уведомлениями о дедлайнах."
+        android:text="• Без стресса: Календарь абитуриента с\nуведомлениями о дедлайнах."
         android:layout_marginTop="379dp"
         android:textSize = "16sp"
         />
@@ -123,8 +120,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Мы берем на себя информацию, ты занимаешься подготовкой. Найдем твой вуз вместе?"
+        android:text="Мы берем на себя информацию,\nты занимаешься подготовкой. Найдем твой\n вуз вместе?"
         android:gravity="center"
+        android:textStyle="bold"
         android:layout_marginTop="420dp"
         android:textSize = "18sp"
         />
