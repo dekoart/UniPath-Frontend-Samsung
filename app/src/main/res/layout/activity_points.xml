@@ -322,7 +322,9 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/btnMain"
+                android:background="@android:color/transparent"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@drawable/homelt"/>
@@ -341,7 +343,9 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/btnFavorite"
+                android:background="@android:color/transparent"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@drawable/favoritelt"/>
@@ -360,7 +364,9 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/btnProfile"
+                android:background="@android:color/transparent"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@drawable/profilelt"/>
