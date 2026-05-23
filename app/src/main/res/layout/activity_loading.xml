@@ -97,7 +97,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/aboutprojectlt"
+        android:src="@drawable/profilelt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="65dp"
@@ -107,10 +107,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="О проекте"
+        android:text="Профиль"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="44dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="12dp"
         />
 

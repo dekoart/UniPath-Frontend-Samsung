@@ -601,13 +601,13 @@
                 android:id="@+id/btnAbout"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:src="@drawable/aboutprojectlt"
+                android:src="@drawable/profilelt"
                 android:background="@color/white"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="О проекте"
+                android:text="Профиль"
                 android:textColor="#777777"
                 android:textSize="12sp" />
 

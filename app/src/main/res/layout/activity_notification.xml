@@ -14,16 +14,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
-    <ImageView
-        android:id="@+id/ic_main"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/backarrowlt"
-        android:background="@android:color/transparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"/>
 
     <TextView
         android:id="@+id/text_unipath"
@@ -32,10 +22,10 @@
         android:text="Уведомления"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/ic_main"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="21dp"
-        android:layout_marginStart="8dp"/>
+        android:layout_marginStart="20dp"/>
 
     <ImageView
         android:id="@+id/ic_notification"
