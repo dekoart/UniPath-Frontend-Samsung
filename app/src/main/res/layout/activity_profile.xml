@@ -126,10 +126,12 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/btnMain"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@drawable/homelt"
+                android:background="@color/white"
                 />
 
             <TextView
@@ -147,10 +149,12 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/btnFavorite"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@drawable/favoritelt"
+                android:background="@color/white"
                 />
 
             <TextView

@@ -58,7 +58,7 @@
 
     <ImageButton
         android:id="@+id/btnMain"
-        android:background="null"
+        android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -100,7 +100,7 @@
         />
 
     <ImageButton
-        android:id="@+id/btnAbout"
+        android:id="@+id/btnProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/profilelt"

@@ -5,12 +5,12 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class FilterActivity extends AppCompatActivity {
+public class ResultActivity extends AppCompatActivity {
 
-    ImageButton btnFavorite, btnAbout;
+    ImageButton btnFavorite, btnProfile;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_filter);
+        setContentView(R.layout.activity_result);
     }
 }

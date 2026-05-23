@@ -143,6 +143,7 @@
                             </LinearLayout>
 
                             <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnFilters"
                                 android:layout_width="match_parent"
                                 android:layout_height="48dp"
                                 android:layout_marginTop="10dp"
@@ -153,6 +154,7 @@
                                 android:textSize="16sp"/>
 
                             <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnSearch"
                                 android:layout_width="match_parent"
                                 android:layout_height="48dp"
                                 android:layout_marginTop="10dp"
@@ -598,7 +600,7 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/btnAbout"
+                android:id="@+id/btnProfile"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/profilelt"

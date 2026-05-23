@@ -6,22 +6,9 @@ import android.os.Bundle;
 import android.content.Intent;
 public class AboutProjectActivity extends AppCompatActivity {
 
-    ImageButton btnMain, btnFavorite;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_project);
-
-        btnMain = findViewById(R.id.btnMain);
-        btnFavorite = findViewById(R.id.btnFavorite);
-
-        btnMain.setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
-        });
-
-        btnFavorite.setOnClickListener(v -> {
-            startActivity(new Intent(this, FavoriteActivity.class));
-        });
     }
 }

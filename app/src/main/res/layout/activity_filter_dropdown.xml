@@ -139,7 +139,7 @@
                     app:boxCornerRadiusBottomEnd="14dp"
                     app:boxStrokeWidth="0dp"
                     app:endIconMode="custom"
-                    app:endIconDrawable="">
+                    >
 
                     <AutoCompleteTextView
                         android:id="@+id/educationDropdown"

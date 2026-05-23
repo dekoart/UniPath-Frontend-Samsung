@@ -58,7 +58,7 @@
 
     <ImageButton
         android:id="@+id/btnMain"
-        android:background="null"
+        android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -79,7 +79,7 @@
 
     <ImageButton
         android:id="@+id/btnFavorite"
-        android:background="null"
+        android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/favoritelt"
@@ -100,8 +100,8 @@
         />
 
     <ImageButton
-        android:id="@+id/btnAbout"
-        android:background="null"
+        android:id="@+id/btnProfile"
+        android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/profilelt"
