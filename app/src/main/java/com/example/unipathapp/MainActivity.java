@@ -21,9 +21,7 @@ public class MainActivity extends AppCompatActivity {
         btnFilters = findViewById(R.id.btnFilters);
         btnSearch = findViewById(R.id.btnSearch);
 
-        btnFavorite.setOnClickListener(v -> {
-            startActivity(new Intent(this, FavoriteActivity.class));
-        });
+
 
         btnProfile.setOnClickListener(v -> {
             startActivity(new Intent(this, ProfileActivity.class));

@@ -72,22 +72,24 @@
                 android:layout_marginEnd="16dp"/>
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/registerText"
+        <Button
+            android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ещё нет аккаунта?\nЗарегистрироваться"
             android:textStyle="bold"
             android:textSize="24sp"
             android:textColor="#5E534B"
+            android:background="@android:color/transparent"
             android:gravity="center"
             android:layout_gravity="center"
-            android:layout_marginTop="28dp"/>
+            android:layout_marginTop="28dp"
+            app:backgroundTint="@null"/>
 
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/loginButton"
+        android:id="@+id/btnLogin"
         android:layout_width="220dp"
         android:layout_height="64dp"
         android:text="Войти"
