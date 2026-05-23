@@ -37,7 +37,7 @@
             android:id="@+id/emailEdit"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:hint="Email*"
+            android:hint="Логин или Email*"
             android:textColor="#000000"
             android:textColorHint="#8D6F61"
             android:paddingHorizontal="18dp"
