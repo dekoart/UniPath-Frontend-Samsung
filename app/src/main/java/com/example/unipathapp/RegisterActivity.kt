@@ -34,23 +34,17 @@ class RegisterActivity : AppCompatActivity() {
         showPassword.setOnClickListener { togglePasswordVisibility(passwordEdit) }
         showConfirmPassword.setOnClickListener { togglePasswordVisibility(confirmPasswordEdit) }
         loginText.setOnClickListener { finish() }
+
         registerButton.setOnClickListener {
             val email = emailEdit.text.toString().trim()
             val password = passwordEdit.text.toString()
             val confirm = confirmPasswordEdit.text.toString()
-            if (email.isEmpty() || password.isEmpty() || confirm.isEmpty()) {
-                Toast.makeText(
-                    this, "Заполните все поля",
-                    Toast.LENGTH_SHORT
-                ).show()
+            if (email.isEmpty() || password.isEmpty() || confirm.isEmpty()) { // простая валидация
+                Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (password != confirm) {
-                Toast.makeText(
-                    this,
-                    "Пароли не совпадают",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Пароли не совпадают", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (password.length < 6) {
@@ -61,16 +55,19 @@ class RegisterActivity : AppCompatActivity() {
                 ).show()
                 return@setOnClickListener
             }
-
-            lifecycleScope.launch {
+            lifecycleScope.launch { // корутина чтобы сеть не фризила интерфейс
                 try {
-                    val response = RetrofitClient.instance.register(
+                    val response = RetrofitClient.authApi.register(
                         RegisterRequest(email, password)
                     )
                     if (response.isSuccessful) {
                         val token = response.body() ?: ""
-                        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
+                        val prefs = getSharedPreferences(
+                            "app_prefs",
+                            MODE_PRIVATE
+                        ) // сохраняем токен
                         prefs.edit().putString("auth_token", token).apply()
+
                         Toast.makeText(
                             this@RegisterActivity,
                             "Регистрация успешна!",
@@ -82,7 +79,7 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.makeText(this@RegisterActivity, errorMessage, Toast.LENGTH_SHORT)
                             .show()
                     }
-                } catch (e: Exception) {
+                } catch (e: Exception) { // ловим обрыв связи или таймаут
                     Toast.makeText(
                         this@RegisterActivity,
                         "Нет связи с сервером",
@@ -94,7 +91,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun togglePasswordVisibility(editText: EditText) {
+    private fun togglePasswordVisibility(editText: EditText) { // переключает пароль между точками и обычным текстом
         val isPasswordVisible = editText.inputType ==
                 (android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD)
         editText.inputType = if (isPasswordVisible)

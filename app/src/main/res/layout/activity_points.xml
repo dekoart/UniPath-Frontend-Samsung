@@ -25,7 +25,6 @@
             android:textColor="#000000"
             android:textSize="28sp"
             android:textStyle="bold"/>
-
     </LinearLayout>
 
     <ScrollView
@@ -52,7 +51,6 @@
                 android:layout_marginBottom="18dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -61,12 +59,14 @@
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-
                 <EditText
+                    android:id="@+id/Russian"
                     android:layout_width="150dp"
                     android:layout_height="45dp"
                     android:background="@drawable/bg_filter_button"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
             </LinearLayout>
 
             <LinearLayout
@@ -75,7 +75,6 @@
                 android:layout_marginBottom="18dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -84,12 +83,14 @@
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-
                 <EditText
+                    android:id="@+id/Math"
                     android:layout_width="150dp"
                     android:layout_height="45dp"
                     android:background="@drawable/bg_filter_button"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
             </LinearLayout>
 
             <LinearLayout
@@ -98,7 +99,30 @@
                 android:layout_marginBottom="18dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Профильная математика"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <EditText
+                    android:id="@+id/ProfileMath"
+                    android:layout_width="150dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/bg_filter_button"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -107,12 +131,14 @@
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-
                 <EditText
+                    android:id="@+id/Physics"
                     android:layout_width="150dp"
                     android:layout_height="45dp"
                     android:background="@drawable/bg_filter_button"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
             </LinearLayout>
 
             <LinearLayout
@@ -121,21 +147,22 @@
                 android:layout_marginBottom="18dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Информатика"
+                    android:text="Информатика и ИКТ"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-
                 <EditText
+                    android:id="@+id/Informatics"
                     android:layout_width="150dp"
                     android:layout_height="45dp"
                     android:background="@drawable/bg_filter_button"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
             </LinearLayout>
 
             <LinearLayout
@@ -144,7 +171,6 @@
                 android:layout_marginBottom="18dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -153,12 +179,14 @@
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-
                 <EditText
+                    android:id="@+id/Chemistry"
                     android:layout_width="150dp"
                     android:layout_height="45dp"
                     android:background="@drawable/bg_filter_button"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
             </LinearLayout>
 
             <LinearLayout
@@ -167,7 +195,6 @@
                 android:layout_marginBottom="18dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -176,12 +203,14 @@
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-
                 <EditText
+                    android:id="@+id/Biology"
                     android:layout_width="150dp"
                     android:layout_height="45dp"
                     android:background="@drawable/bg_filter_button"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
             </LinearLayout>
 
             <LinearLayout
@@ -190,7 +219,6 @@
                 android:layout_marginBottom="18dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -199,12 +227,14 @@
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-
                 <EditText
+                    android:id="@+id/Social"
                     android:layout_width="150dp"
                     android:layout_height="45dp"
                     android:background="@drawable/bg_filter_button"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
             </LinearLayout>
 
             <LinearLayout
@@ -213,7 +243,6 @@
                 android:layout_marginBottom="18dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -222,12 +251,14 @@
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-
                 <EditText
+                    android:id="@+id/History"
                     android:layout_width="150dp"
                     android:layout_height="45dp"
                     android:background="@drawable/bg_filter_button"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
             </LinearLayout>
 
             <LinearLayout
@@ -236,7 +267,6 @@
                 android:layout_marginBottom="18dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -245,12 +275,14 @@
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-
                 <EditText
+                    android:id="@+id/Literature"
                     android:layout_width="150dp"
                     android:layout_height="45dp"
                     android:background="@drawable/bg_filter_button"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
             </LinearLayout>
 
             <LinearLayout
@@ -259,7 +291,6 @@
                 android:layout_marginBottom="18dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -268,12 +299,62 @@
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-
                 <EditText
+                    android:id="@+id/Geography"
                     android:layout_width="150dp"
                     android:layout_height="45dp"
                     android:background="@drawable/bg_filter_button"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Английский язык"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <EditText
+                    android:id="@+id/English"
+                    android:layout_width="150dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/bg_filter_button"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Китайский язык"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <EditText
+                    android:id="@+id/Chinese"
+                    android:layout_width="150dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/bg_filter_button"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
             </LinearLayout>
 
             <LinearLayout
@@ -281,7 +362,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -290,16 +370,29 @@
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
-
                 <EditText
+                    android:id="@+id/ForeignLanguage"
                     android:layout_width="150dp"
                     android:layout_height="45dp"
                     android:background="@drawable/bg_filter_button"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:hint="0-100"/>
             </LinearLayout>
 
-        </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSaveScores"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_find_button"
+                android:text="Сохранить баллы"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
+        </LinearLayout>
     </ScrollView>
 
     <LinearLayout
@@ -321,14 +414,12 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
-
             <ImageButton
                 android:id="@+id/btnMain"
                 android:background="@android:color/transparent"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@drawable/homelt"/>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -342,14 +433,12 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
-
             <ImageButton
                 android:id="@+id/btnFavorite"
                 android:background="@android:color/transparent"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@drawable/favoritelt"/>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -363,21 +452,18 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
-
             <ImageButton
                 android:id="@+id/btnProfile"
                 android:background="@android:color/transparent"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@drawable/profilelt"/>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Профиль"
                 android:textSize="12sp"/>
         </LinearLayout>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

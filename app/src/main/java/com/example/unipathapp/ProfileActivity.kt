@@ -19,7 +19,6 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        // Инициализация элементов
         btnMain = findViewById(R.id.btnMain)
         btnFavorite = findViewById(R.id.btnFavorite)
         btnAbout = findViewById(R.id.btnAbout)
@@ -27,7 +26,6 @@ class ProfileActivity : AppCompatActivity() {
         btnLogout = findViewById(R.id.btnLogout)
         btnPoint = findViewById(R.id.btnPoint)
 
-        // Обработчики кликов
         btnMain.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
