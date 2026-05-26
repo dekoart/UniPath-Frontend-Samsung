@@ -39,6 +39,8 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
+    implementation("com.github.bumptech.glide:glide:4.16.0") // для работы с картинками
+    implementation("com.google.android.material:material:1.11.0") // готовые красивых вьюх от гугла
     implementation("com.squareup.retrofit2:retrofit:2.9.0") // для работы с сервером
     implementation("com.squareup.retrofit2:converter-gson:2.9.0") // обработка json
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0")

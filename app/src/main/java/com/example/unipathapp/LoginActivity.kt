@@ -29,7 +29,6 @@ class LoginActivity : AppCompatActivity() {
         btnLogin = findViewById(R.id.btnLogin)
         btnRegister = findViewById(R.id.btnRegister)
         showPassword = findViewById(R.id.showPassword)
-
         showPassword.setOnClickListener { togglePasswordVisibility(passwordEdit) }
         btnRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))

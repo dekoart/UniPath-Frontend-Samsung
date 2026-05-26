@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnFilters.setOnClickListener(v -> {
-            startActivity(new Intent(this, FiltersActivity.class));
+            startActivity(new Intent(this, FilterActivity.class));
         });
         btnSearch.setOnClickListener(v -> {
             startActivity(new Intent(this, ResultActivity.class));
