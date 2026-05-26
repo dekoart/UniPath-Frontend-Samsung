@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundlt"
-    tools:context=".FiltersActivity">
+    tools:context=".FilterActivity">
+
     <View
         android:id="@+id/topWhiteBlock"
         android:layout_width="0dp"
@@ -74,28 +75,21 @@
                 android:orientation="vertical"
                 android:padding="14dp">
 
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
+                    android:id="@+id/etCity"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_filter_button"
                     android:hint="Ваш город"
-                    app:boxBackgroundColor="#F8F5F2"
-                    app:boxCornerRadiusTopStart="14dp"
-                    app:boxCornerRadiusTopEnd="14dp"
-                    app:boxCornerRadiusBottomStart="14dp"
-                    app:boxCornerRadiusBottomEnd="14dp"
-                    app:boxStrokeWidth="0dp"
-                    app:endIconMode="custom">
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="#5A4A42"
+                    android:textSize="14sp"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"/>
 
-                    <AutoCompleteTextView
-                        android:id="@+id/cityDropdown"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:textColor="#5A4A42"
-                        android:textSize="14sp"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
+                <!-- Направление подготовки - dropdown -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -108,18 +102,20 @@
                     app:boxCornerRadiusBottomStart="14dp"
                     app:boxCornerRadiusBottomEnd="14dp"
                     app:boxStrokeWidth="0dp"
-                    app:endIconMode="custom"
-                    >
+                    app:endIconMode="dropdown_menu">
 
                     <AutoCompleteTextView
                         android:id="@+id/directionDropdown"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="none"
+                        android:focusable="true"
+                        android:clickable="true"
                         android:textColor="#5A4A42"
                         android:textSize="14sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Форма обучения - dropdown -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -132,18 +128,20 @@
                     app:boxCornerRadiusBottomStart="14dp"
                     app:boxCornerRadiusBottomEnd="14dp"
                     app:boxStrokeWidth="0dp"
-                    app:endIconMode="custom"
-                    >
+                    app:endIconMode="dropdown_menu">
 
                     <AutoCompleteTextView
                         android:id="@+id/educationDropdown"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="none"
+                        android:focusable="true"
+                        android:clickable="true"
                         android:textColor="#5A4A42"
                         android:textSize="14sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Тип ВУЗа - dropdown -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -156,17 +154,20 @@
                     app:boxCornerRadiusBottomStart="14dp"
                     app:boxCornerRadiusBottomEnd="14dp"
                     app:boxStrokeWidth="0dp"
-                    app:endIconMode="custom">
+                    app:endIconMode="dropdown_menu">
 
                     <AutoCompleteTextView
                         android:id="@+id/universityDropdown"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="none"
+                        android:focusable="true"
+                        android:clickable="true"
                         android:textColor="#5A4A42"
                         android:textSize="14sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Доп параметры -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -193,28 +194,33 @@
                             android:id="@+id/budgetCheck"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Наличие бюджетных мест"/>
+                            android:text="Наличие бюджетных мест"
+                            android:textColor="#5A4A42"/>
 
                         <CheckBox
                             android:id="@+id/hostelCheck"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Наличие общежития"/>
+                            android:text="Наличие общежития"
+                            android:textColor="#5A4A42"/>
 
                         <CheckBox
                             android:id="@+id/militaryCheck"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Военная кафедра"/>
+                            android:text="Военная кафедра"
+                            android:textColor="#5A4A42"/>
 
                         <CheckBox
                             android:id="@+id/exchangeCheck"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Программы международного обмена"/>
+                            android:text="Программы международного обмена"
+                            android:textColor="#5A4A42"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- Кнопки -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -247,6 +253,7 @@
         </ScrollView>
     </androidx.cardview.widget.CardView>
 
+    <!-- Нижняя навигация -->
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
@@ -260,11 +267,14 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:id="@+id/btnMain"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageView
                 android:layout_width="22dp"
@@ -279,11 +289,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnFavorite"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageView
                 android:layout_width="22dp"
@@ -298,11 +311,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnProfile"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageView
                 android:layout_width="22dp"
@@ -315,7 +331,6 @@
                 android:text="Профиль"
                 android:textSize="12sp"/>
         </LinearLayout>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
