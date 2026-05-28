@@ -15,6 +15,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
+    <ImageButton
+        android:id="@+id/btnBackArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/backarrowlt"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"/>
 
     <TextView
         android:id="@+id/text_unipath"
@@ -25,8 +35,8 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="@id/btnBackArrow"
+        android:layout_marginStart="30dp"
         tools:layout_editor_absoluteX="48dp" />
 
     <TextView
@@ -119,8 +129,9 @@
         android:textSize = "18sp"
         />
 
-    <ImageView
-        android:id="@+id/ic_notification"
+    <ImageButton
+        android:id="@+id/btnNotification"
+        android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_notificationlt"
@@ -181,7 +192,9 @@
         android:layout_marginBottom="12dp"
         />
 
-    <ImageView
+    <ImageButton
+        android:id="@+id/btnProfile"
+        android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/profilelt"

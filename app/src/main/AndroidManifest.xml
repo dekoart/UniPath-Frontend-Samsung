@@ -32,7 +32,6 @@
         <activity android:name=".ResultActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ChangeFilterActivity" />
         <activity android:name=".NotificationActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".UniverseInfoActivity" />

@@ -4,68 +4,60 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.unipathapp.api.RetrofitClient
-import com.example.unipathapp.models.ProgramFilterRequest
-import com.example.unipathapp.models.ProgramResponse
+import com.example.unipathapp.models.UniversityFilterRequest
+import com.example.unipathapp.models.UniversityResponse
 import kotlinx.coroutines.launch
 
 class ResultActivity : AppCompatActivity() {
-    private lateinit var programsContainer: LinearLayout
-    private lateinit var tvCount: TextView
-    private var programs: List<ProgramResponse> = emptyList()
+    private lateinit var container: LinearLayout
+    private var universities: List<UniversityResponse> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        // биндим вьюхи
-        programsContainer = findViewById(R.id.programsContainer)
-        tvCount = findViewById(R.id.tvCount)
+        container = findViewById(R.id.container)
+        universities = intent.getSerializableExtra("UNIVERSITIES") as? List<UniversityResponse> ?: emptyList()
 
-        // получаем список из интента
-        programs = intent.getSerializableExtra("RESULTS") as? List<ProgramResponse> ?: emptyList()
-
-        // если пусто — грузим с сервера
-        if (programs.isEmpty()) {
-            loadPrograms()
+        if (universities.isEmpty()) {
+            loadUniversities()
         } else {
-            showPrograms(programs)
+            showUniversities(universities)
         }
         setupNavigation()
     }
 
-    private fun loadPrograms() {
-        // собираем фильтры из интента
+    private fun loadUniversities() {
         val city = intent.getStringExtra("FILTERS_CITY")
-        val category = intent.getStringExtra("FILTERS_CATEGORY")
-        val form = intent.getStringExtra("FILTERS_FORM")
         val type = intent.getStringExtra("FILTERS_TYPE")
+        val hasDorm = intent.getBooleanExtra("FILTERS_DORM", false)
+        val hasMil = intent.getBooleanExtra("FILTERS_MILITARY", false)
+        val hasExch = intent.getBooleanExtra("FILTERS_EXCHANGE", false)
 
-        val request = ProgramFilterRequest(
-            city = city,
-            category = category,
-            form = form,
-            type = type,
-            hasBudget = null,
-            hasDormitory = null,
-            hasMilitary = null,
-            hasExchange = null
+        val request = UniversityFilterRequest(
+            city = city?.takeIf { it.isNotBlank() },
+            type = type?.takeIf { it != "Все типы" },
+            hasDormitory = if (hasDorm) true else null,
+            hasMilitary = if (hasMil) true else null,
+            hasExchange = if (hasExch) true else null
         )
 
-        // запрос в корутине
         lifecycleScope.launch {
             try {
-                val response = RetrofitClient.programApi.filterPrograms(request)
+                val response = RetrofitClient.universityApi.searchUniversities(request)
                 if (response.isSuccessful && response.body() != null) {
-                    programs = response.body()!!
-                    showPrograms(programs)
+                    universities = response.body()!!
+                    showUniversities(universities)
                 } else {
-                    Toast.makeText(this@ResultActivity, "Ошибка загрузки", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ResultActivity, "Ошибка: ${response.code()}", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
                 Toast.makeText(this@ResultActivity, "Нет связи", Toast.LENGTH_SHORT).show()
@@ -73,54 +65,51 @@ class ResultActivity : AppCompatActivity() {
         }
     }
 
-    private fun showPrograms(programs: List<ProgramResponse>) {
-        programsContainer.removeAllViews()
-
-        programs.forEachIndexed { index, program ->
-            // надуваем карточку из шаблона
+    private fun showUniversities(universities: List<UniversityResponse>) {
+        container.removeAllViews()
+        universities.forEach { uni ->
             val card = LayoutInflater.from(this)
-                .inflate(R.layout.item_program, programsContainer, false)
+                .inflate(R.layout.item_program, container, false)
 
-            // заполняем поля — айдишники маленькие как в лейауте
-            card.findViewById<TextView>(R.id.Name).text = program.name
-            card.findViewById<TextView>(R.id.University).text = program.universityName
-            card.findViewById<TextView>(R.id.City).text = program.city
-            card.findViewById<TextView>(R.id.Form).text = program.form
-            card.findViewById<TextView>(R.id.Budget).text =
-                if (program.budget != null && program.budget > 0)
-                    "Бюджет: ${program.budget}" else "Только платное"
+            card.findViewById<TextView>(R.id.name).text = uni.name
+            card.findViewById<TextView>(R.id.type).text = uni.type
+            card.findViewById<TextView>(R.id.city).text = uni.city
+            card.findViewById<TextView>(R.id.programs).text = "${uni.programsCount ?: 0} программ"
+            card.findViewById<TextView>(R.id.score).text =
+                if (uni.minBudgetScore != null) "от ${uni.minBudgetScore} баллов" else ""
 
-            // клик открывает детали
+            val logo = card.findViewById<ImageView>(R.id.logo)
+            if (!uni.logo.isNullOrEmpty()) {
+                Glide.with(this)
+                    .load(uni.logo)
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .error(R.drawable.ic_launcher_background)
+                    .centerCrop()
+                    .into(logo)
+            }
             card.setOnClickListener {
                 val intent = Intent(this, UniversityDetailActivity::class.java)
-                intent.putExtra("UNIVERSITY", program)
+                intent.putExtra("UNIVERSITY", uni)
                 startActivity(intent)
             }
-
-            programsContainer.addView(card)
-
-            // отступ между карточками
-            if (index < programs.lastIndex) {
-                val spacer = View(this)
-                spacer.layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, 16
+            container.addView(card)
+            container.addView(View(this).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, 12
                 )
-                programsContainer.addView(spacer)
-            }
+            })
         }
-        tvCount.text = "по вашим параметрам Вам подойдёт: ${programs.size}"
     }
 
     private fun setupNavigation() {
-        // нижнее меню
-        findViewById<LinearLayout>(R.id.btnMain).setOnClickListener {
+        findViewById<LinearLayout>(R.id.main).setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
-        findViewById<LinearLayout>(R.id.btnFavorite).setOnClickListener {
+        findViewById<LinearLayout>(R.id.favorite).setOnClickListener {
             startActivity(Intent(this, FavoriteActivity::class.java))
         }
-        findViewById<LinearLayout>(R.id.btnProfile).setOnClickListener {
+        findViewById<LinearLayout>(R.id.profile).setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
     }

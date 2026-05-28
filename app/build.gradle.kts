@@ -45,6 +45,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0") // обработка json
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
     implementation(libs.constraintlayout)
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

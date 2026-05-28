@@ -29,8 +29,8 @@
         android:layout_marginStart="20dp"
         tools:layout_editor_absoluteX="48dp" />
 
-    <ImageView
-        android:id="@+id/ic_notification"
+    <ImageButton
+        android:id="@+id/btnNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_notificationlt"
@@ -112,30 +112,5 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="12dp"
         />
-    <View
-        android:layout_width="294dp"
-        android:layout_height="30dp"
-        android:background="@drawable/bg_search_string"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="86dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="12dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Найти ВУЗ по названию..."
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="93dp"
-        android:textSize="15sp"
-        android:textColor="#7E7E7E"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/search_iconlt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="93dp"
-        android:layout_marginEnd="16dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

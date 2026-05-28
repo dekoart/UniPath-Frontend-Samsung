@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundlt">
@@ -27,15 +28,6 @@
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold"/>
-
-        <ImageButton
-            android:id="@+id/btnAbout"
-            android:background="@color/white"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="12dp"
-            android:src="@drawable/aboutprojectlt"
-            android:layout_marginEnd="18dp"/>
 
         <ImageButton
             android:id="@+id/btnNotification"
@@ -85,33 +77,76 @@
 
     <LinearLayout
         android:id="@+id/scoreLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="410dp"
+        android:layout_height="52dp"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
-        app:layout_constraintTop_toBottomOf="@id/userName"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Мои баллы:"
-            android:textColor="#000000"
-            android:textSize="20sp"/>
+        app:layout_constraintTop_toBottomOf="@id/userName">
 
         <Button
             android:id="@+id/btnPoint"
-            android:layout_width="220dp"
+            android:layout_width="390dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:background="@drawable/bg_filter_button"
-            android:text="Нажми что бы ввести баллы"
+            android:text="Заполнить мои баллы"
             android:textAllCaps="false"
             android:textColor="#A67C63"
-            android:textSize="16sp"
-            app:backgroundTint="@null"/>
+            android:textSize="26sp"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/FavoriteStroke"
+        android:layout_width="410dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="88dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userName">
+
+        <Button
+            android:id="@+id/btnFavoriteStroke"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/bg_filter_button"
+            android:text="Избранное"
+            android:textAllCaps="false"
+            android:textColor="#A67C63"
+            android:textSize="26sp"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/scoreLayout"
+        android:layout_width="410dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userName">
+
+        <Button
+            android:id="@+id/btnPoint"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/bg_filter_button"
+            android:text="Заполнить мои баллы"
+            android:textAllCaps="false"
+            android:textColor="#A67C63"
+            android:textSize="26sp"
+            app:backgroundTint="@null" />
 
     </LinearLayout>
 

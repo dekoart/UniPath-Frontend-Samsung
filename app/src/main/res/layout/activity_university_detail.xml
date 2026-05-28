@@ -12,8 +12,59 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/backarrowlt"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UniPath(University)"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#1E1E1E"
+                android:gravity="center"/>
+
+            <ImageView
+                android:id="@+id/favorite_top"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/favoriteuni"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_marginEnd="8dp"/>
+
+            <ImageView
+                android:id="@+id/notification"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_notificationlt"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+        </LinearLayout>
+
         <ImageView
-            android:id="@+id/universityPhoto"
+            android:id="@+id/photo"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:scaleType="centerCrop"
@@ -35,10 +86,10 @@
                 android:padding="20dp">
 
                 <TextView
-                    android:id="@+id/universityName"
+                    android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="МГУ имени М.В. Ломоносова"
+                    android:text="МГУ имени М.В.Ломоносова"
                     android:textColor="#1E1E1E"
                     android:textSize="22sp"
                     android:textStyle="bold"
@@ -53,12 +104,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="проходной балл на бюджет"
+                        android:text="Проходной балл на бюджет"
                         android:textColor="#8B8B8B"
                         android:textSize="12sp"/>
 
                     <TextView
-                        android:id="@+id/budgetScore"
+                        android:id="@+id/budget_score"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -77,12 +128,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="проходной балл на платное отделение"
+                        android:text="Проходной балл на платное отделение"
                         android:textColor="#8B8B8B"
                         android:textSize="12sp"/>
 
                     <TextView
-                        android:id="@+id/paidScore"
+                        android:id="@+id/paid_score"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -125,7 +176,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Количество бюджетных мест"
+                        android:text="Количевство бюдждетных мест"
                         android:textColor="#8B8B8B"
                         android:textSize="12sp"
                         android:textStyle="bold"/>
@@ -144,7 +195,7 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/budgetFullTime"
+                                android:id="@+id/budget_full"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="32 очно"
@@ -161,7 +212,7 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/budgetPartTime"
+                                android:id="@+id/budget_part"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="34 заочно"
@@ -178,7 +229,7 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/budgetMixed"
+                                android:id="@+id/budget_mixed"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="34 очно-заочно"
@@ -198,7 +249,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Количество платных мест"
+                        android:text="Количевство платных мест"
                         android:textColor="#8B8B8B"
                         android:textSize="12sp"
                         android:textStyle="bold"/>
@@ -217,7 +268,7 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/paidFullTime"
+                                android:id="@+id/paid_full"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="32 очно"
@@ -234,7 +285,7 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/paidPartTime"
+                                android:id="@+id/paid_part"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="34 заочно"
@@ -251,7 +302,7 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/paidMixed"
+                                android:id="@+id/paid_mixed"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="34 очно-заочно"
@@ -264,6 +315,77 @@
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:id="@+id/main"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/homelt"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Р“Р»Р°РІРЅР°СЏ"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/favorite"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/favoritelt"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="РР·Р±СЂР°РЅРЅРѕРµ"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/profile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/profilelt"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="РџСЂРѕС„РёР»СЊ"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>
