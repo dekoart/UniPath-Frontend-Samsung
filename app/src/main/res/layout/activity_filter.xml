@@ -89,7 +89,7 @@
                     android:imeOptions="actionDone"
                     android:importantForAutofill="no"/>
 
-                <!-- Направление подготовки - dropdown -->
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                         android:textSize="14sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Форма обучения - dropdown -->
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                         android:textSize="14sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Тип ВУЗа - dropdown -->
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
                         android:textSize="14sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Доп параметры -->
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -220,7 +220,7 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- Кнопки -->
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -253,7 +253,6 @@
         </ScrollView>
     </androidx.cardview.widget.CardView>
 
-    <!-- Нижняя навигация -->
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"

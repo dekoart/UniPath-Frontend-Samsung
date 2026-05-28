@@ -18,11 +18,6 @@ object RetrofitClient {
             .create(ScoresApi::class.java)
     }
 
-    val programApi: ProgramApi by lazy {
-        Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create())
-            .build().create(ProgramApi::class.java)
-    }
-
 
     val universityApi: UniversityApi by lazy {
         Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create())

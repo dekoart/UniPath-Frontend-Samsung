@@ -33,5 +33,8 @@ public class MainActivity extends AppCompatActivity {
         btnSearch.setOnClickListener(v -> {
             startActivity(new Intent(this, ResultActivity.class));
         });
+        btnFavorite.setOnClickListener(v -> {
+            startActivity(new Intent(this, FavoriteActivity.class));
+        });
     }
 }

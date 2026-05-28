@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.content.Intent;
 public class AboutProjectActivity extends AppCompatActivity {
 
-    ImageButton btnNotification, btnProfile, btnFavorite, btnMain;
+    ImageButton btnNotification, btnProfile, btnFavorite, btnMain, btnBackArrow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +16,7 @@ public class AboutProjectActivity extends AppCompatActivity {
         btnMain = findViewById(R.id.btnMain);
         btnFavorite = findViewById(R.id.btnFavorite);
         btnNotification = findViewById(R.id.btnNotification);
+        btnBackArrow = findViewById(R.id.btnBackArrow);
 
         btnMain.setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
@@ -28,6 +29,9 @@ public class AboutProjectActivity extends AppCompatActivity {
         });
         btnNotification.setOnClickListener(v -> {
             startActivity(new Intent(this, NotificationActivity.class));
+        });
+        btnBackArrow.setOnClickListener(v -> {
+            startActivity(new Intent(this, ProfileActivity.class));
         });
     }
 }

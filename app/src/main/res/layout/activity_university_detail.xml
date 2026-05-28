@@ -1,391 +1,401 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundlt"
-    android:fillViewport="true">
+    android:background="@drawable/backgroundlt">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_menu"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:background="@color/white">
-
-            <ImageView
-                android:id="@+id/back"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/backarrowlt"
-                android:padding="8dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="UniPath(University)"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#1E1E1E"
-                android:gravity="center"/>
-
-            <ImageView
-                android:id="@+id/favorite_top"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/favoriteuni"
-                android:padding="8dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:layout_marginEnd="8dp"/>
-
-            <ImageView
-                android:id="@+id/notification"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_notificationlt"
-                android:padding="8dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/photo"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:scaleType="centerCrop"
-            android:background="#E0E0E0"
-            android:src="@drawable/ic_launcher_background"/>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="#FFFFFF">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:layout_height="75dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/backarrowlt"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"/>
 
                 <TextView
-                    android:id="@+id/name"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="МГУ имени М.В.Ломоносова"
-                    android:textColor="#1E1E1E"
-                    android:textSize="22sp"
+                    android:layout_weight="1"
+                    android:text="UniPath(University)"
+                    android:textSize="18sp"
                     android:textStyle="bold"
+                    android:textColor="#1E1E1E"
                     android:gravity="center"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/favorite_top"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/favoriteuni"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginEnd="8dp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Проходной балл на бюджет"
-                        android:textColor="#8B8B8B"
-                        android:textSize="12sp"/>
-
-                    <TextView
-                        android:id="@+id/budget_score"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="от 130 баллов"
-                        android:textColor="#4CAF50"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Проходной балл на платное отделение"
-                        android:textColor="#8B8B8B"
-                        android:textSize="12sp"/>
-
-                    <TextView
-                        android:id="@+id/paid_score"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="от 180 баллов"
-                        android:textColor="#FF9800"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Стоимость года обучения"
-                        android:textColor="#8B8B8B"
-                        android:textSize="12sp"/>
-
-                    <TextView
-                        android:id="@+id/price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="от 70 000₽"
-                        android:textColor="#1E1E1E"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Количевство бюдждетных мест"
-                        android:textColor="#8B8B8B"
-                        android:textSize="12sp"
-                        android:textStyle="bold"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/budget_full"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="32 очно"
-                                android:textColor="#4CAF50"
-                                android:textSize="14sp"
-                                android:textStyle="bold"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/budget_part"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="34 заочно"
-                                android:textColor="#4CAF50"
-                                android:textSize="14sp"
-                                android:textStyle="bold"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/budget_mixed"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="34 очно-заочно"
-                                android:textColor="#4CAF50"
-                                android:textSize="14sp"
-                                android:textStyle="bold"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Количевство платных мест"
-                        android:textColor="#8B8B8B"
-                        android:textSize="12sp"
-                        android:textStyle="bold"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/paid_full"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="32 очно"
-                                android:textColor="#FF9800"
-                                android:textSize="14sp"
-                                android:textStyle="bold"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/paid_part"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="34 заочно"
-                                android:textColor="#FF9800"
-                                android:textSize="14sp"
-                                android:textStyle="bold"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/paid_mixed"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="34 очно-заочно"
-                                android:textColor="#FF9800"
-                                android:textSize="14sp"
-                                android:textStyle="bold"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
+                <ImageView
+                    android:id="@+id/notification"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_notificationlt"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"/>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:background="#E0E0E0"
+                android:src="@drawable/ic_launcher_background"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="МГУ имени М.В.Ломоносова"
+                        android:textColor="#1E1E1E"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Проходной балл на бюджет"
+                            android:textColor="#8B8B8B"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:id="@+id/budget_score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="от 130 баллов"
+                            android:textColor="#4CAF50"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Проходной балл на платное отделение"
+                            android:textColor="#8B8B8B"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:id="@+id/paid_score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="от 180 баллов"
+                            android:textColor="#FF9800"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Стоимость года обучения"
+                            android:textColor="#8B8B8B"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:id="@+id/price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="от 70 000₽"
+                            android:textColor="#1E1E1E"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Количевство бюдждетных мест"
+                            android:textColor="#8B8B8B"
+                            android:textSize="12sp"
+                            android:textStyle="bold"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/budget_full"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="32 очно"
+                                    android:textColor="#4CAF50"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/budget_part"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="34 заочно"
+                                    android:textColor="#4CAF50"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/budget_mixed"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="34 очно-заочно"
+                                    android:textColor="#4CAF50"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Количевство платных мест"
+                            android:textColor="#8B8B8B"
+                            android:textSize="12sp"
+                            android:textStyle="bold"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/paid_full"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="32 очно"
+                                    android:textColor="#FF9800"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/paid_part"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="34 заочно"
+                                    android:textColor="#FF9800"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/paid_mixed"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="34 очно-заочно"
+                                    android:textColor="#FF9800"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/white">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:orientation="horizontal"
-            android:background="@color/white"
-            android:layout_marginTop="8dp">
+            android:id="@+id/main"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/main"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/homelt"/>
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/homelt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Главная"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Р“Р»Р°РІРЅР°СЏ"
-                    android:textSize="12sp"
-                    android:layout_marginTop="4dp"/>
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/favorite"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/favorite"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/favoritelt"/>
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/favoritelt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Избранное"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="РР·Р±СЂР°РЅРЅРѕРµ"
-                    android:textSize="12sp"
-                    android:layout_marginTop="4dp"/>
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/profile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/profile"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/profilelt"/>
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/profilelt"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="РџСЂРѕС„РёР»СЊ"
-                    android:textSize="12sp"
-                    android:layout_marginTop="4dp"/>
-            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Профиль"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"/>
         </LinearLayout>
 
     </LinearLayout>
-</ScrollView>
+
+</RelativeLayout>
