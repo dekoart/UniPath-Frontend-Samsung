@@ -10,10 +10,12 @@ class ProfileActivity : AppCompatActivity() {
 
     private lateinit var btnMain: ImageButton
     private lateinit var btnFavorite: ImageButton
-    private lateinit var btnAbout: ImageButton
+    private lateinit var btnAbout: Button
     private lateinit var btnNotification: ImageButton
     private lateinit var btnLogout: ImageButton
     private lateinit var btnPoint: Button
+
+    private lateinit var btnFavoriteStroke: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,12 +27,17 @@ class ProfileActivity : AppCompatActivity() {
         btnNotification = findViewById(R.id.btnNotification)
         btnLogout = findViewById(R.id.btnLogout)
         btnPoint = findViewById(R.id.btnPoint)
+        btnFavoriteStroke = findViewById(R.id.btnFavoriteStroke)
 
         btnMain.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
         btnFavorite.setOnClickListener {
+            startActivity(Intent(this, FavoriteActivity::class.java))
+        }
+
+        btnFavoriteStroke.setOnClickListener {
             startActivity(Intent(this, FavoriteActivity::class.java))
         }
 
