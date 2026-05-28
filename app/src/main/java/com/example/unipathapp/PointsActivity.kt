@@ -33,6 +33,8 @@ class PointsActivity : AppCompatActivity() {
     private lateinit var btnMain: ImageButton
     private lateinit var btnFavorite: ImageButton
     private lateinit var btnProfile: ImageButton
+
+    private lateinit var btnBackArrow: ImageButton
     private lateinit var prefs: SharedPreferences
     private var currentUserId: Long = 1L
     private lateinit var subjectInputs: Map<Long, EditText>
@@ -90,6 +92,7 @@ class PointsActivity : AppCompatActivity() {
         btnMain = findViewById(R.id.btnMain)
         btnFavorite = findViewById(R.id.btnFavorite)
         btnProfile = findViewById(R.id.btnProfile)
+        btnBackArrow = findViewById(R.id.btnBackArrow)
 
         btnMain.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
@@ -99,6 +102,9 @@ class PointsActivity : AppCompatActivity() {
             startActivity(Intent(this, FavoriteActivity::class.java))
         }
         btnProfile.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+        btnBackArrow.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
