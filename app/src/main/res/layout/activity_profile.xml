@@ -126,10 +126,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/scoreLayout"
+        android:id="@+id/myData"
         android:layout_width="410dp"
         android:layout_height="52dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="158dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -137,18 +137,44 @@
         app:layout_constraintTop_toBottomOf="@id/userName">
 
         <Button
-            android:id="@+id/btnPoint"
+            android:id="@+id/btnMyData"
             android:layout_width="390dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:background="@drawable/bg_filter_button"
-            android:text="Заполнить мои баллы"
+            android:text="Мои данные"
             android:textAllCaps="false"
             android:textColor="#A67C63"
             android:textSize="26sp"
             app:backgroundTint="@null" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/AboutProject"
+        android:layout_width="410dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="158dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userName">
+
+        <Button
+            android:id="@+id/btnAbout"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/bg_filter_button"
+            android:text="О проекте"
+            android:textAllCaps="false"
+            android:textColor="#A67C63"
+            android:textSize="26sp"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/bottomNav"
