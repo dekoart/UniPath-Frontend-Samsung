@@ -12,10 +12,6 @@ public class UniverseInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_universeinfo);
-
-        imgFavorite = findViewById(R.id.imgFavorite);
-
         imgFavorite.setOnClickListener(v -> {
 
             if (isLiked) {

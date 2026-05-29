@@ -51,7 +51,7 @@ class ProfileActivity : AppCompatActivity() {
 
         btnLogout.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
-            finish() // Закрыть профиль, чтобы не возвращаться по Back
+            finish() // закрыть профиль
         }
 
         btnPoint.setOnClickListener {
