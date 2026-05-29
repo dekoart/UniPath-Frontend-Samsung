@@ -538,35 +538,38 @@
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
-        android:layout_height="74dp"
-        android:background="#FFFFFF"
-        android:elevation="8dp"
+        android:layout_height="80dp"
+        android:background="@android:color/white"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="3"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
-            <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:src="@drawable/homeltc" />
+            <ImageButton
+                android:id="@+id/btnMain"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/homeltc"
+                android:background="@color/white"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Главная"
                 android:textColor="#9F735A"
-                android:textSize="12sp" />
-
+                android:textSize="15sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -578,18 +581,18 @@
 
             <ImageButton
                 android:id="@+id/btnFavorite"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:src="@drawable/favoritelt"
-                android:background="@color/white"/>
+                android:background="@color/white"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Избранное"
-                android:textColor="#777777"
-                android:textSize="12sp" />
-
+                android:textColor="#5A6275"
+                android:textSize="15sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -600,19 +603,17 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/btnProfile"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:src="@drawable/profilelt"
-                android:background="@color/white"/>
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/profilelt" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Профиль"
-                android:textColor="#777777"
-                android:textSize="12sp" />
-
+                android:textColor="#5A6275"
+                android:textSize="15sp"/>
         </LinearLayout>
 
     </LinearLayout>
