@@ -116,25 +116,55 @@ class PointsActivity : AppCompatActivity() {
     }
 
     private fun saveScores() {
-        val scoresList = mutableListOf<SubjectScore>()
-
+        var hasError = false
+        var firstInvalidField: EditText? = null
+        //  проверяем все поля на валидность
         for ((subjectId, editText) in subjectInputs) {
             val input = editText.text.toString().trim()
-            val score =
-                if (input.isNotEmpty()) { // если поле null иначе парсим и проверяем диапазон
-                    try {
-                        val value = input.toInt()
-                        if (value in 0..100) value else null
-                    } catch (e: NumberFormatException) {
-                        null
+            if (input.isNotEmpty()) {
+                try {
+                    val value = input.toInt()
+                    if (value < 0 || value > 100) {
+                        // находим название предмета для сообщения
+                        val subjectName = getSubjectNameById(subjectId)
+                        editText.error = "От 0 до 100"
+                        editText.requestFocus()
+
+                        if (!hasError) {
+                            firstInvalidField = editText
+                            Toast.makeText(
+                                this,
+                                "Баллы по предмету \"$subjectName\" должны быть от 0 до 100",
+                                Toast.LENGTH_LONG
+                            ).show()
+                            hasError = true
+                        }
                     }
-                } else {
-                    null
+                } catch (e: NumberFormatException) {
+                    editText.error = "Только числа"
+                    if (!hasError) {
+                        firstInvalidField = editText
+                        hasError = true
+                    }
                 }
+            }
+        }
+
+        // есть ошибки  не сохраняем
+        if (hasError) {
+            firstInvalidField?.requestFocus()
+            return
+        }
+        val scoresList = mutableListOf<SubjectScore>()
+        for ((subjectId, editText) in subjectInputs) {
+            val input = editText.text.toString().trim()
+            val score = if (input.isNotEmpty()) input.toInt() else null
             scoresList.add(SubjectScore(subjectId, score))
         }
+
         val request = ScoresRequest(currentUserId, scoresList)
-        lifecycleScope.launch { // запускаем корутину чтобы не блокировать главный поток
+
+        lifecycleScope.launch {
             try {
                 val response = RetrofitClient.scoresApi.saveScores(request)
                 if (response.isSuccessful) {
@@ -145,11 +175,32 @@ class PointsActivity : AppCompatActivity() {
                     Toast.makeText(this@PointsActivity, "Ошибка: $errorMsg", Toast.LENGTH_SHORT)
                         .show()
                 }
-            } catch (e: Exception) { // ловим любые сетевые ошибки
+            } catch (e: Exception) {
                 Toast.makeText(this@PointsActivity, "Нет связи с сервером", Toast.LENGTH_SHORT)
                     .show()
                 e.printStackTrace()
             }
+        }
+    }
+
+    // получаем название предмета по ID
+    private fun getSubjectNameById(id: Long): String {
+        return when (id) {
+            1L -> "Русский язык"
+            2L -> "Математика"
+            3L -> "Профильная математика"
+            4L -> "Физика"
+            5L -> "Информатика"
+            6L -> "Химия"
+            7L -> "Биология"
+            8L -> "Обществознание"
+            9L -> "История"
+            10L -> "Литература"
+            11L -> "География"
+            12L -> "Английский"
+            13L -> "Китайский"
+            14L -> "Иностранный язык"
+            else -> "Предмет"
         }
     }
 
