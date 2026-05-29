@@ -131,6 +131,7 @@
                                     android:src="@drawable/searchlt" />
 
                                 <EditText
+                                    android:id="@+id/etSearch"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:background="@android:color/transparent"
@@ -174,6 +175,7 @@
                             app:justifyContent="center">
 
                             <TextView
+                                android:id="@+id/tagIT"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
@@ -183,10 +185,13 @@
                                 android:text="IT и программирование"
                                 android:textColor="#5C4033"
                                 android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
                                 android:maxLines="1"
                                 android:ellipsize="end"/>
 
                             <TextView
+                                android:id="@+id/tagMedicine"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
@@ -196,10 +201,13 @@
                                 android:text="Медицина"
                                 android:textColor="#5C4033"
                                 android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
                                 android:maxLines="1"
                                 android:ellipsize="end"/>
 
                             <TextView
+                                android:id="@+id/tagEconomic"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
@@ -209,10 +217,13 @@
                                 android:text="Экономика"
                                 android:textColor="#5C4033"
                                 android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
                                 android:maxLines="1"
                                 android:ellipsize="end"/>
 
                             <TextView
+                                android:id="@+id/tagJurisprudence"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
@@ -222,10 +233,13 @@
                                 android:text="Юриспруденция"
                                 android:textColor="#5C4033"
                                 android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
                                 android:maxLines="1"
                                 android:ellipsize="end"/>
 
                             <TextView
+                                android:id="@+id/tagDesign"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
@@ -235,6 +249,8 @@
                                 android:text="Дизайн"
                                 android:textColor="#5C4033"
                                 android:textSize="14sp"
+                                android:clickable="true"
+                                android:focusable="true"
                                 android:maxLines="1"
                                 android:ellipsize="end"/>
 

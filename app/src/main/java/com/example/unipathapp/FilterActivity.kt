@@ -95,10 +95,13 @@ class FilterActivity : AppCompatActivity() {
         // собираем фильтры если пустые = null
         val city = etCity.text.toString().trim().ifBlank { null }
         val type = universityDropdown.text.toString().takeIf { it.isNotBlank() && it != "Все типы" }
-        val hasDorm = if (hostelCheck.isChecked) true else null
+        val hasDormitory = if (hostelCheck.isChecked) true else null
         val hasMilitary = if (militaryCheck.isChecked) true else null
         val hasExchange = if (exchangeCheck.isChecked) true else null
-        val request = UniversityFilterRequest(city, type, hasDorm, hasMilitary, hasExchange)
+        val request = UniversityFilterRequest(
+            city, type,
+            hasDormitory as String?, hasMilitary as String?, hasExchange,
+        )
 
         lifecycleScope.launch {
             try {
@@ -109,8 +112,8 @@ class FilterActivity : AppCompatActivity() {
                     val intent = Intent(this@FilterActivity, ResultActivity::class.java).apply {
                         putExtra("FILTERS_CITY", city)
                         putExtra("FILTERS_TYPE", type)
-                        putExtra("FILTERS_DORM", hasDorm == true)  // конвертим в boolean
-                        putExtra("FILTERS_MILITARY", hasMilitary == true)
+                        putExtra("FILTERS_DORM", false)  // конвертим в boolean
+                        putExtra("FILTERS_MILITARY", false)
                         putExtra("FILTERS_EXCHANGE", hasExchange == true)
                         putExtra("UNIVERSITIES", ArrayList(results))  // сериализуем список
                     }
