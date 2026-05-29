@@ -57,7 +57,7 @@
         android:padding="16dp"
         android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@id/card"
-        app:layout_constraintBottom_toTopOf="@id/nav"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -69,86 +69,85 @@
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/nav"
+        android:id="@+id/bottomNav"
         android:layout_width="0dp"
-        android:layout_height="75dp"
-        android:background="@color/white"
-        android:orientation="horizontal"
+        android:layout_height="80dp"
+        android:background="@android:color/white"
         android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:id="@+id/main"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
             android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
+            android:orientation="vertical"
+            >
 
             <ImageButton
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:id="@+id/btnMain"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:src="@drawable/homelt"
-                android:background="@android:color/transparent" />
+                android:background="@color/white"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Главная"
-                android:textSize="12sp"
-                android:layout_marginTop="4dp" />
+                android:textColor="#5A6275"
+                android:textSize="15sp"/>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/favorite"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
             android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
+            android:orientation="vertical">
 
             <ImageButton
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:id="@+id/btnFavorite"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:src="@drawable/favoritelt"
-                android:background="@android:color/transparent" />
+                android:background="@color/white"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Избранное"
-                android:textSize="12sp"
-                android:layout_marginTop="4dp" />
+                android:textColor="#5A6275"
+                android:textSize="15sp"/>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/profile"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
             android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
+            android:orientation="vertical">
 
             <ImageButton
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:src="@drawable/profilelt"
-                android:background="@android:color/transparent" />
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/profilelt" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Профильы"
-                android:textSize="12sp"
-                android:layout_marginTop="4dp" />
+                android:text="Профиль"
+                android:textColor="#5A6275"
+                android:textSize="15sp"/>
         </LinearLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

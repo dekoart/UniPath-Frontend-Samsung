@@ -422,18 +422,23 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
+
             <ImageButton
                 android:id="@+id/btnMain"
-                android:background="@android:color/transparent"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:src="@drawable/homelt"/>
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/homelt"
+                android:background="@color/white"
+                />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Главная"
-                android:textSize="12sp"/>
+                android:textColor="#5A6275"
+                android:textSize="15sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -442,17 +447,21 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
+
             <ImageButton
                 android:id="@+id/btnFavorite"
-                android:background="@android:color/transparent"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:src="@drawable/favoritelt"/>
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/favoritelt"
+                android:background="@color/white"
+                />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Избранное"
-                android:textSize="12sp"/>
+                android:textColor="#5A6275"
+                android:textSize="15sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -461,18 +470,21 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
+
             <ImageButton
-                android:id="@+id/btnProfile"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="@android:color/transparent"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:src="@drawable/profilelt"/>
+                android:src="@drawable/profilelt" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Профиль"
-                android:textSize="12sp"/>
+                android:textColor="#5A6275"
+                android:textSize="15sp"/>
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
