@@ -102,14 +102,14 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun setupNavigation() {
-        findViewById<LinearLayout>(R.id.main).setOnClickListener {
+        findViewById<LinearLayout>(R.id.btnMain).setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
-        findViewById<LinearLayout>(R.id.favorite).setOnClickListener {
+        findViewById<LinearLayout>(R.id.btnFavorite).setOnClickListener {
             startActivity(Intent(this, FavoriteActivity::class.java))
         }
-        findViewById<LinearLayout>(R.id.profile).setOnClickListener {
+        findViewById<LinearLayout>(R.id.btnProfile).setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
