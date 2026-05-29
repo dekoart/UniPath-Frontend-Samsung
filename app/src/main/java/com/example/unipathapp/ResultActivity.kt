@@ -47,7 +47,7 @@ class ResultActivity : AppCompatActivity() {
             type = type?.takeIf { it != "Все типы" },
             hasDormitory = if (hasDorm) true else null,
             hasMilitary = if (hasMil) true else null,
-            hasExchange = if (hasExch) true else null
+            hasExchange = if (hasExch) true else null,
         )
 
         lifecycleScope.launch {
