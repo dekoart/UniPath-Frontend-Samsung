@@ -1,33 +1,27 @@
-package com.example.unipathapp;
+package com.example.unipathapp
 
-import android.view.View;
-import android.widget.ImageButton;
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.content.Intent;
+import android.content.Intent
+import android.os.Bundle
+import android.widget.ImageButton
+import androidx.appcompat.app.AppCompatActivity
 
-public class FavoriteActivity extends AppCompatActivity {
+class FavoriteActivity : AppCompatActivity() {
 
-    ImageButton btnMain, btnProfile, btnNotification;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_favorite);
-
-        btnMain = findViewById(R.id.btnMain);
-        btnProfile = findViewById(R.id.btnProfile);
-        btnNotification = findViewById(R.id.btnNotification);
-
-        btnMain.setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
-        });
-
-        btnProfile.setOnClickListener(v -> {
-            startActivity(new Intent(this, ProfileActivity.class));
-        });
-        btnNotification.setOnClickListener(v -> {
-            startActivity(new Intent(this, NotificationActivity.class));
-        });
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_favorite)
+        val btnMain = findViewById<ImageButton>(R.id.btnMain)
+        val btnProfile = findViewById<ImageButton>(R.id.btnProfile)
+        val btnNotification = findViewById<ImageButton>(R.id.btnNotification)
+        btnMain.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+        btnProfile.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+        btnNotification.setOnClickListener {
+            startActivity(Intent(this, NotificationActivity::class.java))
+        }
     }
 }

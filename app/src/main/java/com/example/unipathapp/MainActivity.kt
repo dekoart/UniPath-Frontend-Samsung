@@ -3,9 +3,9 @@ package com.example.unipathapp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.lifecycleScope
@@ -16,9 +16,6 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var btnFavorite: ImageButton
-    private lateinit var btnProfile: ImageButton
     private lateinit var btnFilters: AppCompatButton
     private lateinit var btnSearch: AppCompatButton
     private lateinit var etSearch: EditText
@@ -26,16 +23,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        // Биндим вьюхи
-        btnFavorite = findViewById(R.id.btnFavorite)
-        btnProfile = findViewById(R.id.btnProfile)
         btnFilters = findViewById(R.id.btnFilters)
         btnSearch = findViewById(R.id.btnSearch)
         etSearch = findViewById(R.id.etSearch)
+        findViewById<View>(R.id.btnFavorite)?.setOnClickListener {
+            startActivity(Intent(this, FavoriteActivity::class.java))
+        }
 
-        // Кнопки навигации
-        btnProfile.setOnClickListener {
+        findViewById<View>(R.id.btnProfile)?.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
 
@@ -43,34 +38,28 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, FilterActivity::class.java))
         }
 
-        btnFavorite.setOnClickListener {
-            startActivity(Intent(this, FavoriteActivity::class.java))
-        }
-
-        // Кнопка "Найти" (поиск по названию)
         btnSearch.setOnClickListener {
             val query = etSearch.text.toString().trim()
             if (query.isEmpty()) {
                 Toast.makeText(this, "Введите название вуза", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            searchUniversities(name = query)
+
+            searchUniversities(name = query, city = null, direction = null)
         }
 
-        // === КЛИКАБЕЛЬНЫЕ ТЕГИ (НАПРАВЛЕНИЯ) ===
         setupDirectionTags()
     }
 
     private fun setupDirectionTags() {
-        val tags = listOf<TextView>(
-            findViewById(R.id.tagIT),
-            findViewById(R.id.tagMedicine),
-            findViewById(R.id.tagEconomic),
-            findViewById(R.id.tagJurisprudence),
-            findViewById(R.id.tagDesign)
+        val tagIds = listOf(
+            R.id.tagIT,
+            R.id.tagMedicine,
+            R.id.tagEconomic,
+            R.id.tagJurisprudence,
+            R.id.tagDesign
         )
 
-        // Сопоставляем текст тега с направлением
         val directionMap = mapOf(
             "IT и программирование" to "IT и программирование",
             "Медицина" to "Медицина",
@@ -79,9 +68,10 @@ class MainActivity : AppCompatActivity() {
             "Дизайн" to "Дизайн"
         )
 
-        tags.forEach { tag ->
-            tag.setOnClickListener {
-                val direction = directionMap[tag.text.toString()]
+        tagIds.forEach { id ->
+            findViewById<View>(id)?.setOnClickListener {
+                val tag = findViewById<TextView>(id)
+                val direction = directionMap[tag?.text.toString()]
                 if (direction != null) {
                     searchUniversities(direction = direction)
                 }
@@ -89,19 +79,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun searchUniversities(name: String? = null, direction: String? = null) {
+    private fun searchUniversities(
+        name: String? = null,
+        direction: String? = null,
+        city: String? = null
+    ) {
         lifecycleScope.launch {
             try {
                 val request = UniversityFilterRequest(
                     name = name,
-                    direction = direction
+                    direction = direction,
+                    city = city
                 )
 
-                val response: Response<List<UniversityResponse>> =
-                    RetrofitClient.universityApi.searchUniversities(request)
+                val response = RetrofitClient.universityApi.searchUniversities(request)
 
                 if (response.isSuccessful && response.body() != null) {
                     val results = response.body()!!
+
+                    if (results.isEmpty()) {
+                        Toast.makeText(this@MainActivity, "Вузы не найдены", Toast.LENGTH_SHORT)
+                            .show()
+                        return@launch
+                    }
 
                     val intent = Intent(this@MainActivity, ResultActivity::class.java).apply {
                         putExtra("UNIVERSITIES", ArrayList(results))
@@ -115,12 +115,7 @@ class MainActivity : AppCompatActivity() {
                     ).show()
                 }
             } catch (e: Exception) {
-                Toast.makeText(
-                    this@MainActivity,
-                    "Нет связи: ${e.message}",
-                    Toast.LENGTH_SHORT
-                ).show()
-                e.printStackTrace()
+                Toast.makeText(this@MainActivity, "Нет связи", Toast.LENGTH_SHORT).show()
             }
         }
     }

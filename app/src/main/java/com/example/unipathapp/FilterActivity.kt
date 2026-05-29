@@ -2,6 +2,7 @@ package com.example.unipathapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -17,9 +18,9 @@ class FilterActivity : AppCompatActivity() {
     private lateinit var hostelCheck: CheckBox
     private lateinit var militaryCheck: CheckBox
     private lateinit var exchangeCheck: CheckBox
-    private lateinit var btnMain: LinearLayout
-    private lateinit var btnFavorite: LinearLayout
-    private lateinit var btnProfile: LinearLayout
+    private lateinit var btnMain: View
+    private lateinit var btnFavorite: View
+    private lateinit var btnProfile: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +32,9 @@ class FilterActivity : AppCompatActivity() {
         hostelCheck = findViewById(R.id.hostelCheck)
         militaryCheck = findViewById(R.id.militaryCheck)
         exchangeCheck = findViewById(R.id.exchangeCheck)
-        btnMain = findViewById(R.id.btnMain)
-        btnFavorite = findViewById(R.id.btnFavorite)
-        btnProfile = findViewById(R.id.btnProfile)
+        btnMain = findViewById<View>(R.id.btnMain)
+        btnFavorite = findViewById<View>(R.id.btnFavorite)
+        btnProfile = findViewById<View>(R.id.btnProfile)
 
         setupDropdowns()
         setupNavigation()
@@ -92,15 +93,22 @@ class FilterActivity : AppCompatActivity() {
     }
 
     private fun applyFilters() {
-        // собираем фильтры если пустые = null
         val city = etCity.text.toString().trim().ifBlank { null }
-        val type = universityDropdown.text.toString().takeIf { it.isNotBlank() && it != "Все типы" }
+        val direction = directionDropdown.text.toString()
+            .takeIf { it.isNotBlank() && it != "Все направления" }
+        val type = universityDropdown.text.toString()
+            .takeIf { it.isNotBlank() && it != "Все типы" }
         val hasDormitory = if (hostelCheck.isChecked) true else null
         val hasMilitary = if (militaryCheck.isChecked) true else null
         val hasExchange = if (exchangeCheck.isChecked) true else null
         val request = UniversityFilterRequest(
-            city, type,
-            hasDormitory as String?, hasMilitary as String?, hasExchange,
+            city = city,
+            name = null,
+            direction = direction,
+            type = type,
+            hasDormitory = hasDormitory,
+            hasMilitary = hasMilitary,
+            hasExchange = hasExchange
         )
 
         lifecycleScope.launch {
@@ -108,14 +116,13 @@ class FilterActivity : AppCompatActivity() {
                 val response = RetrofitClient.universityApi.searchUniversities(request)
                 if (response.isSuccessful && response.body() != null) {
                     val results = response.body()!!
-                    // передаём данные в ResultActivity
                     val intent = Intent(this@FilterActivity, ResultActivity::class.java).apply {
                         putExtra("FILTERS_CITY", city)
                         putExtra("FILTERS_TYPE", type)
-                        putExtra("FILTERS_DORM", false)  // конвертим в boolean
-                        putExtra("FILTERS_MILITARY", false)
+                        putExtra("FILTERS_DORM", hasDormitory == true)   // ← Исправлено
+                        putExtra("FILTERS_MILITARY", hasMilitary == true) // ← Исправлено
                         putExtra("FILTERS_EXCHANGE", hasExchange == true)
-                        putExtra("UNIVERSITIES", ArrayList(results))  // сериализуем список
+                        putExtra("UNIVERSITIES", ArrayList(results))
                     }
                     startActivity(intent)
                 } else {
@@ -126,8 +133,9 @@ class FilterActivity : AppCompatActivity() {
                     ).show()
                 }
             } catch (e: Exception) {
-                // ловим ошибки сети
-                Toast.makeText(this@FilterActivity, "Нет связи", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@FilterActivity, "Нет связи: ${e.message}", Toast.LENGTH_SHORT)
+                    .show()
+                e.printStackTrace()
             }
         }
     }

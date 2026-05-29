@@ -2,6 +2,7 @@ package com.example.unipathapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
@@ -19,14 +20,12 @@ import kotlinx.coroutines.launch
 class ResultActivity : AppCompatActivity() {
     private lateinit var container: LinearLayout
     private var universities: List<UniversityResponse> = emptyList()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
-
         container = findViewById(R.id.container)
-        universities = intent.getSerializableExtra("UNIVERSITIES") as? List<UniversityResponse> ?: emptyList()
-
+        universities =
+            intent.getSerializableExtra("UNIVERSITIES") as? List<UniversityResponse> ?: emptyList()
         if (universities.isEmpty()) {
             loadUniversities()
         } else {
@@ -41,7 +40,6 @@ class ResultActivity : AppCompatActivity() {
         val hasDorm = intent.getBooleanExtra("FILTERS_DORM", false)
         val hasMil = intent.getBooleanExtra("FILTERS_MILITARY", false)
         val hasExch = intent.getBooleanExtra("FILTERS_EXCHANGE", false)
-
         val request = UniversityFilterRequest(
             city = city?.takeIf { it.isNotBlank() },
             type = type?.takeIf { it != "Все типы" },
@@ -57,7 +55,11 @@ class ResultActivity : AppCompatActivity() {
                     universities = response.body()!!
                     showUniversities(universities)
                 } else {
-                    Toast.makeText(this@ResultActivity, "Ошибка: ${response.code()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@ResultActivity,
+                        "Ошибка: ${response.code()}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             } catch (e: Exception) {
                 Toast.makeText(this@ResultActivity, "Нет связи", Toast.LENGTH_SHORT).show()
@@ -70,14 +72,12 @@ class ResultActivity : AppCompatActivity() {
         universities.forEach { uni ->
             val card = LayoutInflater.from(this)
                 .inflate(R.layout.item_program, container, false)
-
             card.findViewById<TextView>(R.id.name).text = uni.name
             card.findViewById<TextView>(R.id.type).text = uni.type
             card.findViewById<TextView>(R.id.city).text = uni.city
             card.findViewById<TextView>(R.id.programs).text = "${uni.programsCount ?: 0} программ"
             card.findViewById<TextView>(R.id.score).text =
                 if (uni.minBudgetScore != null) "от ${uni.minBudgetScore} баллов" else ""
-
             val logo = card.findViewById<ImageView>(R.id.logo)
             if (!uni.logo.isNullOrEmpty()) {
                 Glide.with(this)
@@ -102,15 +102,27 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun setupNavigation() {
-        findViewById<LinearLayout>(R.id.btnMain).setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+        findViewById<View>(R.id.btnMain)?.apply {
+            isClickable = true
+            isFocusable = true
+            setOnClickListener {
+                startActivity(Intent(this@ResultActivity, MainActivity::class.java))
+                finish()
+            }
         }
-        findViewById<LinearLayout>(R.id.btnFavorite).setOnClickListener {
-            startActivity(Intent(this, FavoriteActivity::class.java))
+        findViewById<View>(R.id.btnFavorite)?.apply {
+            isClickable = true
+            isFocusable = true
+            setOnClickListener {
+                startActivity(Intent(this@ResultActivity, FavoriteActivity::class.java))
+            }
         }
-        findViewById<LinearLayout>(R.id.btnProfile).setOnClickListener {
-            startActivity(Intent(this, ProfileActivity::class.java))
+        findViewById<View>(R.id.btnProfile)?.apply {
+            isClickable = true
+            isFocusable = true
+            setOnClickListener {
+                startActivity(Intent(this@ResultActivity, ProfileActivity::class.java))
+            }
         }
     }
 }
